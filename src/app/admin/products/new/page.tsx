@@ -109,7 +109,7 @@ export default function NewProduct() {
       const result = await createProduct(productData);
       console.log(result);
       
-      if (result.data && result.success) {
+      if (result.success) {
         toastUtils.success('Product created successfully!');
         
         // Reset form

@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   images: {
     domains: [
       'studentsecommerce.blob.core.windows.net',
+      'johnshop.blob.core.windows.net',
       'images.unsplash.com',
       'api.dicebear.com',
     ],
@@ -17,6 +18,12 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'api.dicebear.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'johnshop.blob.core.windows.net',
         port: '',
         pathname: '/**',
       },
