@@ -4,6 +4,7 @@ export const config = {
   api: {
     baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://johnshop-cugfcxfeebemevbc.uksouth-01.azurewebsites.net/api',
     timeout: 10000,
+    uploadTimeout: 60000, // 60 seconds for file uploads
   },
   
   // App Configuration

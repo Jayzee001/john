@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { apiClient } from '../api';
+import { config } from '../config';
 
 export const adminProductService = {
   // Create a new product (admin only)
@@ -19,6 +20,7 @@ export const adminProductService = {
     }
     const response: any = await apiClient.post('/admin/products', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
+      timeout: config.api.uploadTimeout,
     });
     return response.data;
   },
@@ -49,6 +51,7 @@ export const adminProductService = {
     }
     const response: any = await apiClient.put(`/admin/products/${id}`, formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
+      timeout: config.api.uploadTimeout,
     });
     return response;
   },

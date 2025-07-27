@@ -97,12 +97,12 @@ export default function NewProduct() {
     
     try {
       // Create product data for store
+      const { stock, ...dataWithoutStock } = data; // Remove stock field
       const productData = {
-        ...data,
+        ...dataWithoutStock,
         price: parseFloat(data.price),
-        stock: parseInt(data.stock),
-        image: images.length > 0 ? images[0].preview : '', // Use first image as main image
-        // In a real app, you'd upload images to a service and get URLs
+        quantity: parseInt(stock), // Map stock field to quantity for API
+        images: images, // Send the full images array with File objects
       };
 
       // Create product using admin store
@@ -117,13 +117,19 @@ export default function NewProduct() {
         setImages([]);
         router.push('/admin/products');
       } else {
-        toastUtils.error('Error creating product', result.error.details || '');
+        toastUtils.error('Error creating product', result.error?.details || result.error?.message || 'Unknown error occurred');
       }
     } catch (error: any) {
       console.error('Error creating product:', error);
-      const apiError = error?.response?.data?.error;
-      const message = apiError?.details || apiError?.message || error?.message || 'Error creating product';
-      toastUtils.error('Error creating product', message);
+      
+      // Handle timeout errors specifically
+      if (error.code === 'ECONNABORTED' || error.message?.includes('timeout')) {
+        toastUtils.error('Error creating product', 'Request timed out. Please try again or check your internet connection.');
+      } else {
+        const apiError = error?.response?.data?.error;
+        const message = apiError?.details || apiError?.message || error?.message || 'Error creating product';
+        toastUtils.error('Error creating product', message);
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -157,6 +163,17 @@ export default function NewProduct() {
               </div>
             )}
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+              {isSubmitting && (
+                <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-600"></div>
+                    <div className="flex-1">
+                      <p className="text-blue-800 text-sm font-medium">Uploading product...</p>
+                      <p className="text-blue-600 text-xs">This may take a few moments for large images</p>
+                    </div>
+                  </div>
+                </div>
+              )}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Product Name */}
                 <div>
@@ -383,7 +400,7 @@ export default function NewProduct() {
                 </Link>
                 <Button 
                   type="submit" 
-                  disabled={!isValid || isSubmitting || isLoading || images.length === 0}
+                  disabled={!isValid || isSubmitting || isLoading}
                   className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400"
                 >
                   {isSubmitting || isLoading ? 'Creating...' : 'Create Product'}
