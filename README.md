@@ -5,6 +5,7 @@ A modern, full-featured e-commerce application built with Next.js, TypeScript, a
 ## 🚀 Features
 
 ### Customer Side
+
 - **Product Browsing**: Browse products with search and category filtering
 - **Product Details**: Detailed product pages with images and descriptions
 - **Shopping Cart**: Add/remove items with quantity management
@@ -14,6 +15,7 @@ A modern, full-featured e-commerce application built with Next.js, TypeScript, a
 - **Responsive Design**: Mobile-first design that works on all devices
 
 ### Admin Panel
+
 - **Dashboard**: Overview of store performance with key
 - **Product Management**: Add, edit, delete, and publish/unpublish products
 - **Order Management**: View and update order statuses
@@ -35,6 +37,7 @@ A modern, full-featured e-commerce application built with Next.js, TypeScript, a
 ## 🎨 Design System
 
 The application uses a comprehensive design system with:
+
 - Customizable color schemes (Blue, Purple, Green, Red, Orange themes)
 - Consistent typography and spacing
 - Reusable UI components (Button, Card, Input)
@@ -68,23 +71,27 @@ John/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd john
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Run the development server**
+
    ```bash
    npm run dev
    ```
@@ -95,10 +102,12 @@ John/
 ## 🔐 Authentication
 
 ### Customer Login
+
 - **Email**: `user@example.com`
 - **Password**: `password`
 
 ### Admin Login
+
 - **Email**: `admin@john.com`
 - **Password**: `admin123`
 
@@ -130,6 +139,7 @@ John/
 ## 🎨 Customization
 
 ### Changing Colors
+
 Edit `src/lib/design-system.ts` to customize your store's appearance:
 
 ```typescript
@@ -143,11 +153,13 @@ colors: {
 ```
 
 ### Adding New Themes
+
 Uncomment and modify the alternative color schemes in the design system file.
 
 ## 📱 Responsive Design
 
 The application is fully responsive with:
+
 - Mobile-first approach
 - Tablet and desktop optimizations
 - Touch-friendly interfaces
@@ -156,12 +168,14 @@ The application is fully responsive with:
 ## 🔧 Development
 
 ### Available Scripts
+
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 
 ### Code Structure
+
 - **Components**: Reusable UI components in `src/components/ui/`
 - **Pages**: Route-based pages in `src/app/`
 - **Contexts**: State management in `src/contexts/`
@@ -171,12 +185,15 @@ The application is fully responsive with:
 ## 🚀 Deployment
 
 ### Vercel (Recommended)
+
 1. Push your code to GitHub
 2. Connect your repository to Vercel
 3. Deploy automatically
 
 ### Other Platforms
+
 The application can be deployed to any platform that supports Next.js:
+
 - Netlify
 - Railway
 - DigitalOcean App Platform

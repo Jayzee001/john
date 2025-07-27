@@ -2,7 +2,7 @@
 export const config = {
   // API Configuration
   api: {
-    baseURL: process.env.NEXT_PUBLIC_API_URL,
+    baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://johnshop-cugfcxfeebemevbc.uksouth-01.azurewebsites.net/api',
     timeout: 10000,
   },
   
