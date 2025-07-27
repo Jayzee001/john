@@ -14,7 +14,7 @@ A modern, full-featured e-commerce application built with Next.js, TypeScript, a
 - **Responsive Design**: Mobile-first design that works on all devices
 
 ### Admin Panel
-- **Dashboard**: Overview of store performance with key metrics
+- **Dashboard**: Overview of store performance with key
 - **Product Management**: Add, edit, delete, and publish/unpublish products
 - **Order Management**: View and update order statuses
 - **User Management**: View and manage customer accounts
