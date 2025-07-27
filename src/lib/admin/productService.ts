@@ -22,7 +22,7 @@ export const adminProductService = {
       headers: { 'Content-Type': 'multipart/form-data' },
       timeout: config.api.uploadTimeout,
     });
-    return response.data;
+    return response;
   },
   // Get product by id (admin only)
   getById: async (id: string) => {

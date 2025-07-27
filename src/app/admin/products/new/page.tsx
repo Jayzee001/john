@@ -107,7 +107,8 @@ export default function NewProduct() {
 
       // Create product using admin store
       const result = await createProduct(productData);
-      console.log(result);
+      console.log('Full result:', result);
+      console.log('Success check:', result.success);
       
       if (result.success) {
         toastUtils.success('Product created successfully!');
